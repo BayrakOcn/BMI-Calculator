@@ -48,7 +48,4 @@ result_label = tkinter.Label(text="")
 result_label.config(padx=20, pady=20)
 result_label.pack()
 
-x, y = calculate.winfo_rootx(), calculate.winfo_rooty()
-print(calculate.winfo_rootx(), calculate.winfo_rooty())
-
 window.mainloop()
