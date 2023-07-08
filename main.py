@@ -8,21 +8,24 @@ window.config(padx=20, pady=20)
 
 
 def calculate_bmi():
-    w = float(weight.get())
-    h = float(height.get())
-    bmi = (w / (h ** 2)) * 10000
-    if bmi < 18.5:
-        result_label.config(text=f"Your BMI is {bmi:.1f} : Underweight")
-    elif 18.5 <= bmi <= 24.9:
-        result_label.config(text=f"Your BMI is {bmi:.1f} : Normal Weight")
-    elif 25.0 <= bmi <= 29.9:
-        result_label.config(text=f"Your BMI is {bmi:.1f} : Overweight")
-    elif 30 <= bmi <= 34.9:
-        result_label.config(text=f"Your BMI is {bmi:.1f} : Obesity Class I")
-    elif 35 <= bmi <= 39.9:
-        result_label.config(text=f"Your BMI is {bmi:.1f} : Obesity Class II")
+    if not weight.get().isdigit() or not height.get().isdigit():
+        result_label.config(text="Please enter valid values")
     else:
-        result_label.config(text=f"Your BMI is {bmi:.1f} : Obesity Class III")
+        w = float(weight.get())
+        h = float(height.get())
+        bmi = (w / (h ** 2)) * 10000
+        if bmi < 18.5:
+            result_label.config(text=f"Your BMI is {bmi:.1f} : Underweight")
+        elif 18.5 <= bmi <= 24.9:
+            result_label.config(text=f"Your BMI is {bmi:.1f} : Normal Weight")
+        elif 25.0 <= bmi <= 29.9:
+            result_label.config(text=f"Your BMI is {bmi:.1f} : Overweight")
+        elif 30 <= bmi <= 34.9:
+            result_label.config(text=f"Your BMI is {bmi:.1f} : Obesity Class I")
+        elif 35 <= bmi <= 39.9:
+            result_label.config(text=f"Your BMI is {bmi:.1f} : Obesity Class II")
+        else:
+            result_label.config(text=f"Your BMI is {bmi:.1f} : Obesity Class III")
 
 
 # weight
